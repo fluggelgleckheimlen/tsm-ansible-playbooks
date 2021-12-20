@@ -2,17 +2,17 @@
 - name: Update log4j packages on TSM VE 8.1.13 datamovers
   hosts: all
   vars:
-    log4jdir: apache-log4j-2.16.0-bin/
+    log4jdir: apache-log4j-2.17.0-bin/
     log4jfiles:
-      - log4j-1.2-api-2.16.0.jar
-      - log4j-api-2.16.0.jar
-      - log4j-core-2.16.0.jar
-      - log4j-jcl-2.16.0.jar
-      - log4j-slf4j-impl-2.16.0.jar
+      - log4j-1.2-api-2.17.0.jar
+      - log4j-api-2.17.0.jar
+      - log4j-core-2.17.0.jar
+      - log4j-jcl-2.17.0.jar
+      - log4j-slf4j-impl-2.17.0.jar
   tasks:
     - name: Download and extract log4j package
       unarchive:
-        src: https://dlcdn.apache.org/logging/log4j/2.16.0/apache-log4j-2.16.0-bin.tar.gz
+        src: https://dlcdn.apache.org/logging/log4j/2.17.0/apache-log4j-2.17.0-bin.tar.gz
         dest: "{{ playbook_dir }}"
         remote_src: yes
       run_once: true
@@ -44,8 +44,8 @@
         group: tdpvmware
         mode: 0775
       loop:
-        - "{{ log4jdir }}log4j-api-2.16.0.jar"
-        - "{{ log4jdir }}log4j-core-2.16.0.jar"
+        - "{{ log4jdir }}log4j-api-2.17.0.jar"
+        - "{{ log4jdir }}log4j-core-2.17.0.jar"
 
     - name: Remove old files from tdpvmware
       file:
@@ -63,9 +63,9 @@
         group: tdpvmware
         mode: 0775
       loop:
-        - "{{ log4jdir }}log4j-1.2-api-2.16.0.jar"
-        - "{{ log4jdir }}log4j-api-2.16.0.jar"
-        - "{{ log4jdir }}log4j-core-2.16.0.jar"
+        - "{{ log4jdir }}log4j-1.2-api-2.17.0.jar"
+        - "{{ log4jdir }}log4j-api-2.17.0.jar"
+        - "{{ log4jdir }}log4j-core-2.17.0.jar"
 
     - name: Remove old files from FR_API
       file:
@@ -84,10 +84,10 @@
         group: bin
         mode: 0555
       loop:
-        - "{{ log4jdir }}log4j-api-2.16.0.jar"
-        - "{{ log4jdir }}log4j-core-2.16.0.jar"
-        - "{{ log4jdir }}log4j-jcl-2.16.0.jar"
-        - "{{ log4jdir }}log4j-slf4j-impl-2.16.0.jar"
+        - "{{ log4jdir }}log4j-api-2.17.0.jar"
+        - "{{ log4jdir }}log4j-core-2.17.0.jar"
+        - "{{ log4jdir }}log4j-jcl-2.17.0.jar"
+        - "{{ log4jdir }}log4j-slf4j-impl-2.17.0.jar"
 
     - name: Remove old files from SDK
       file:
